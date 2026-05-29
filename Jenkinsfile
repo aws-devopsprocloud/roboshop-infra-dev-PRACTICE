@@ -40,7 +40,7 @@ pipeline {
                 """
             }
         }
-        stage('VPN') {
+        stage('BASTION') {
             steps {
                 sh """
                     cd 04-bastion
