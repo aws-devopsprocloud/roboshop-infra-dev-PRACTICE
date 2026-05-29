@@ -503,17 +503,17 @@ resource "aws_security_group_rule" "vpn_public_943" {
 }
 
 
-# # NOT REQUIRED
-# resource "aws_security_group_rule" "backend_alb_vpn" {
-#   type              = "ingress"
-#   from_port         = 80
-#   to_port           = 80
-#   protocol          = "tcp"
-#   #cidr_blocks       = ["0.0.0.0/0"]
-#   source_security_group_id = data.aws_ssm_parameter.vpn_sg_id.value
-#   # which SG you are creating this rule
-#   security_group_id = data.aws_ssm_parameter.backend_alb_sg_id.value
-# }
+# NOT REQUIRED
+resource "aws_security_group_rule" "backend_alb_vpn" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  #cidr_blocks       = ["0.0.0.0/0"]
+  source_security_group_id = data.aws_ssm_parameter.vpn_sg_id.value
+  # which SG you are creating this rule
+  security_group_id = data.aws_ssm_parameter.backend_alb_sg_id.value
+}
 
 # resource "aws_security_group_rule" "mongodb_vpn" {
 #   type              = "ingress"
