@@ -13,6 +13,15 @@ pipeline {
     //     choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick something')
     // }
     stages {    
+        stage('Backend-ALB') {
+            steps {
+                sh """
+                    cd 06-backend-alb
+                    terraform init -reconfigure
+                    terraform destroy -auto-approve
+                """
+            }
+        }
         stage('Databases') {
             steps {
                 sh """

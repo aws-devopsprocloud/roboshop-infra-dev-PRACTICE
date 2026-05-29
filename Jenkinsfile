@@ -58,6 +58,15 @@ pipeline {
                 """
             }
         }
+        stage('Backend-ALB') {
+            steps {
+                sh """
+                    cd 06-backend-alb
+                    terraform init -reconfigure
+                    terraform apply -auto-approve
+                """
+            }
+        }
         
     }
     post {
