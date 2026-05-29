@@ -1,4 +1,4 @@
-module "mongodb" {
+module "bastion" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   ami = data.aws_ami.rhel-9.id
   name = "${var.project}-${var.environment}-bastion"
