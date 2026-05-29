@@ -13,6 +13,15 @@ pipeline {
     //     choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick something')
     // }
     stages {    
+        stage('VPN') {
+            steps {
+                sh """
+                    cd 12-vpn
+                    terraform init -reconfigure
+                    terraform destroy -auto-approve
+                """
+            }
+        }
         stage('Backend-ALB') {
             steps {
                 sh """

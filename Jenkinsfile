@@ -67,6 +67,15 @@ pipeline {
                 """
             }
         }
+        stage('VPN') {
+            steps {
+                sh """
+                    cd 12-vpn
+                    terraform init -reconfigure
+                    terraform apply -auto-approve
+                """
+            }
+        }
         
     }
     post {

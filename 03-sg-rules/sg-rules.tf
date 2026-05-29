@@ -481,26 +481,26 @@ resource "aws_security_group_rule" "bastion_internet" {
 #---------------------------
 #           NEW            |
 #---------------------------
-# resource "aws_security_group_rule" "vpn_public_443" {
-#   type              = "ingress"
-#   from_port         = 443
-#   to_port           = 443
-#   protocol          = "tcp"
-#   # Where traffic is coming from
-#   cidr_blocks       = ["0.0.0.0/0"]
-#   security_group_id = data.aws_ssm_parameter.vpn_sg_id.value
-# }
+resource "aws_security_group_rule" "vpn_public_443" {
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  # Where traffic is coming from
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = data.aws_ssm_parameter.vpn_sg_id.value
+}
 
-# # Admin UI
-# resource "aws_security_group_rule" "vpn_public_943" {
-#   type              = "ingress"
-#   from_port         = 943
-#   to_port           = 943
-#   protocol          = "tcp"
-#   # Where traffic is coming from
-#   cidr_blocks       = ["0.0.0.0/0"]
-#   security_group_id = data.aws_ssm_parameter.vpn_sg_id.value
-# }
+# Admin UI
+resource "aws_security_group_rule" "vpn_public_943" {
+  type              = "ingress"
+  from_port         = 943
+  to_port           = 943
+  protocol          = "tcp"
+  # Where traffic is coming from
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = data.aws_ssm_parameter.vpn_sg_id.value
+}
 
 
 # # NOT REQUIRED

@@ -18,16 +18,6 @@ variable "common_tags" {
 }
 
 
-variable "sg_names" {
-  type = list 
-  default = [
-    "mongodb", 
-    "catalogue",  
-    "bastion",
-    "backend_alb",
-    "vpn",
-  ]
-}
 # variable "sg_ingress_rules" {
 #   type = list  
 #   default = [
